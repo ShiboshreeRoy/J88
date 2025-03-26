@@ -4,12 +4,18 @@
     <th>User</th>
     <th>Amount</th>
     <th>Transaction Code</th>
+    <th>ScreenShoot</th>
     <th>Action</th>
   </tr>
   <% @deposits.each do |deposit| %>
     <tr>
       <td><%= deposit.user.email %></td>
       <td><%= deposit.amount %></td>
+      <td>
+  <% if deposit.image.attached? %>
+    <%= image_tag(deposit.image) %>
+  <% end %>
+</td>
       <td><%= deposit.transaction_code %></td>
       <td>
         <%= link_to 'Approve', approve_admin_deposit_path(deposit), method: :patch, data: { confirm: 'Are you sure?' } %>
