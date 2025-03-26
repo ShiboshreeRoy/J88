@@ -1,0 +1,16 @@
+<h2>Your Deposits</h2>
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Transaction Code</th>
+    <th>Status</th>
+  </tr>
+  <% @deposits.each do |deposit| %>
+    <tr>
+      <td><%= deposit.amount %></td>
+      <td><%= deposit.transaction_code %></td>
+      <td><%= deposit.status %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "dipost Now", deposits_new_path%>

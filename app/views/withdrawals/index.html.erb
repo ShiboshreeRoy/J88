@@ -1,0 +1,22 @@
+<h1>Your Withdrawals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Requested At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @withdrawals.each do |withdrawal| %>
+      <tr>
+        <td><%= number_to_currency(withdrawal.amount) %></td>
+        <td><%= withdrawal.status.capitalize %></td>
+        <td><%= withdrawal.created_at.strftime("%B %d, %Y %H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Withdrawal', new_withdrawal_path, class: 'btn btn-primary' %>

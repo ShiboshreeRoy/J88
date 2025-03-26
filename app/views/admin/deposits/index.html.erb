@@ -1,0 +1,19 @@
+<h2>Pending Deposits</h2>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Amount</th>
+    <th>Transaction Code</th>
+    <th>Action</th>
+  </tr>
+  <% @deposits.each do |deposit| %>
+    <tr>
+      <td><%= deposit.user.email %></td>
+      <td><%= deposit.amount %></td>
+      <td><%= deposit.transaction_code %></td>
+      <td>
+        <%= link_to 'Approve', approve_admin_deposit_path(deposit), method: :patch, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

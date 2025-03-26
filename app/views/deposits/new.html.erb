@@ -1,0 +1,18 @@
+<h2>New Deposit</h2>
+<%= form_with model: @deposit, local: true do |f| %>
+  <div>
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </div>
+  <div>
+    <%= f.label :transaction_code %>
+    <%= f.text_field :transaction_code %>
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.submit 'Submit Deposit' %>
+  </div>
+<% end %>
